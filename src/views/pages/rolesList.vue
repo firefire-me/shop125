@@ -54,7 +54,7 @@
 import {reactive,toRefs,ref} from "vue"
 import {getRolesApi,addRolesApi,editRolesApi,rolesDeleteApi} from "@/util/request.js"
 export default {
-    name:"roles",
+    name:"roleS",
     setup(){
         const data=reactive({
             rolesList:[],
@@ -69,6 +69,7 @@ export default {
                 }
             }, 
         })
+
         const getList=()=>{
             getRolesApi().then(res=>{
                 data.rolesList=res.data
@@ -109,7 +110,7 @@ export default {
             } 
         }
         const deleteRow =row=>{
-            rolesDeleteApi(row).then(res=>{
+            rolesDeleteApi(row).then((res)=>{
                 getList()
             })
         }
